@@ -1,13 +1,16 @@
 import { User } from "../models/user.model.js";
 import bcrypt from "bcryptjs";
 import jwt from "jsonwebtoken";
-import getDataUri from "../utils/datauri.js";
+
 import cloudinary from "../utils/cloudinary.js";
 
 
 export const register = async (req, res) => {
     try {
         const { fullname, email, phoneNumber, password, role,profilePhoto } = req.body;
+
+        //everytime the profilepic should come from req.file and put that req.file in getDataUri function which gives back the url of the file
+        //then store the url cloudinary and then profilePhotoUrl = cloudResponse.secure_url
         
 
         if (!fullname || !email || !phoneNumber || !password || !role) {

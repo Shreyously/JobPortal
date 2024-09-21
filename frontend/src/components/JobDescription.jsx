@@ -24,7 +24,7 @@ const JobDescription = () => {
             
             if(res.data.success){
                 setIsApplied(true); // Update the local state
-                const updatedSingleJob = {...singleJob, applications:[...singleJob.applications,{applicant:user?._id}]}
+                const updatedSingleJob = {...singleJob, applications:[...singleJob.applications,{applicant:user?._id}]}//change redux state 
                 dispatch(setSingleJob(updatedSingleJob)); // helps us to real time UI update
                 toast.success(res.data.message);
 
@@ -48,7 +48,7 @@ const JobDescription = () => {
             }
         }
         fetchSingleJob(); 
-    },[jobId,dispatch, user?._id]);
+    },[jobId,dispatch, user?._id]);// whenever the jobId, dispatch or user changes, fetch the new job.why dispatch because we need to update the state of the job.
 
     return (
         <div className='max-w-7xl mx-auto my-10'>
