@@ -10,7 +10,7 @@ const useGetAllAdminJobs = () => {
         const fetchAllAdminJobs = async () => {
             try {
                 //with credentials true is used to send cookies
-                const res = await axios.get(`${JOB_API_END_POINT}/getadminjobs`,{withCredentials:true});
+                const res = await axios.get(`https://jobportal-qlmu.onrender.com/api/v1/job/getadminjobs`,{withCredentials:true});
                 if(res.data.success){
                     dispatch(setAllAdminJobs(res.data.jobs));
                 }
